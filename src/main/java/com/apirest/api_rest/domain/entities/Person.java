@@ -2,6 +2,7 @@ package com.apirest.api_rest.domain.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -21,6 +22,9 @@ public class Person {
 
     @Column(name = "lastName", columnDefinition = "VARCHAR(50)", nullable = false)
     private String lastName;
+
+    @Embedded
+    private Audit audit = new Audit();
 
     @ManyToOne
     City cities;
